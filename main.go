@@ -86,7 +86,7 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	var result map[string]interface{}
-	err = client.CallWithSession(ctx, uint32(nodeTwinIDArg), nil, cmdArg, nil, &result)
+	err = client.Call(ctx, uint32(nodeTwinIDArg), cmdArg, nil, &result)
 	if err != nil {
 		fmt.Println("failed to call peer client: %w", err)
 		os.Exit(1)
@@ -101,7 +101,6 @@ func main() {
 
 func nodeIDToTwinID(gridProxyUrl string, nodeID uint64) (uint32, error) {
 	endpoint := fmt.Sprintf("%s/nodes/%d", gridProxyUrl, nodeID)
-	fmt.Println(endpoint)
 	res, err := http.Get(endpoint)
 	if err != nil {
 		return 0, err

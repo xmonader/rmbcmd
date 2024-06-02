@@ -61,6 +61,7 @@ https://gridproxy.grid.tf/nodes/8
 ```
 
 ### Invoke by twinID
+
 ```
 ➜  rmbcmd git:(master) ✗ ./rmbcmd -cmd 'zos.system.version' -twinID 16
 {"level":"debug","url":"wss://tfchain.grid.tf/","time":"2024-06-02T20:13:50+03:00","message":"connecting"}
